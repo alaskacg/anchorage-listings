@@ -24,6 +24,9 @@ import AdminPayments from "./pages/admin/AdminPayments";
 import AdminSettings from "./pages/admin/AdminSettings";
 import NotFound from "./pages/NotFound";
 
+// Anchorage Pages
+import AnchorageIndex from "./pages/anchorage/Index";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -35,6 +38,7 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Routes>
+              {/* Alcan Listings Routes */}
               <Route path="/" element={<Index />} />
               <Route path="/post-listing" element={<PostListing />} />
               <Route path="/browse" element={<Browse />} />
@@ -53,6 +57,22 @@ const App = () => (
               <Route path="/admin/users" element={<AdminUsers />} />
               <Route path="/admin/payments" element={<AdminPayments />} />
               <Route path="/admin/settings" element={<AdminSettings />} />
+              
+              {/* Anchorage Listings Routes */}
+              <Route path="/anchorage" element={<AnchorageIndex />} />
+              <Route path="/anchorage/browse" element={<Browse />} />
+              <Route path="/anchorage/post-listing" element={<PostListing />} />
+              <Route path="/anchorage/listing/:id" element={<ListingDetail />} />
+              <Route path="/anchorage/my-listings" element={<MyListings />} />
+              <Route path="/anchorage/login" element={<Login />} />
+              <Route path="/anchorage/register" element={<Register />} />
+              <Route path="/anchorage/regions" element={<Regions />} />
+              <Route path="/anchorage/categories" element={<Categories />} />
+              <Route path="/anchorage/terms" element={<Terms />} />
+              <Route path="/anchorage/privacy" element={<Privacy />} />
+              <Route path="/anchorage/disclaimer" element={<Disclaimer />} />
+              <Route path="/anchorage/admin" element={<Dashboard />} />
+              
               {/* Catch-all */}
               <Route path="*" element={<NotFound />} />
             </Routes>
