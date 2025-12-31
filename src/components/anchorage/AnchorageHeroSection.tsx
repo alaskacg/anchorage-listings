@@ -1,101 +1,112 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Building2, Grid, Search, Sparkles } from "lucide-react";
+import { ArrowRight, Grid, Search, Sparkles, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
 const AnchorageHeroSection = () => {
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-16">
-      {/* Urban gradient background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/10 to-secondary/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+      {/* Dark urban gradient background - no aurora */}
+      <div className="absolute inset-0 bg-background">
+        {/* Subtle geometric pattern overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }}
+        />
         
-        {/* Animated urban elements */}
+        {/* Gradient mesh - subtle and dark */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-secondary/8" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+        
+        {/* Floating orbs - very subtle */}
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/15 rounded-full blur-3xl"
+          className="absolute top-1/3 left-1/5 w-72 h-72 bg-primary/10 rounded-full blur-[100px]"
           animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3]
+            scale: [1, 1.15, 1],
+            opacity: [0.15, 0.25, 0.15]
           }}
-          transition={{ duration: 6, repeat: Infinity }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-secondary/15 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/5 w-96 h-96 bg-secondary/8 rounded-full blur-[120px]"
           animate={{ 
-            scale: [1.2, 1, 1.2],
-            opacity: [0.3, 0.5, 0.3]
+            scale: [1.1, 1, 1.1],
+            opacity: [0.12, 0.2, 0.12]
           }}
-          transition={{ duration: 8, repeat: Infinity, delay: 1 }}
-        />
-        <motion.div 
-          className="absolute top-1/2 right-1/3 w-48 h-48 bg-accent/10 rounded-full blur-2xl"
-          animate={{ 
-            y: [0, -20, 0],
-            opacity: [0.2, 0.4, 0.2]
-          }}
-          transition={{ duration: 5, repeat: Infinity, delay: 2 }}
+          transition={{ duration: 10, repeat: Infinity, delay: 1, ease: "easeInOut" }}
         />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
+          {/* Headline with styled treatment */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6"
-          >
-            <Building2 className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Greater Anchorage Metro</span>
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-6 leading-tight"
+            transition={{ duration: 0.7 }}
+            className="mb-6"
           >
-            Anchorage's Premier
-            <span className="block text-gradient-mountain">Private Marketplace</span>
-          </motion.h1>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+              <span className="text-foreground">Anchorage's</span>
+              <span className="block mt-2">
+                <span className="relative inline-block">
+                  <span className="text-primary">Premier</span>
+                  <motion.span
+                    className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                  />
+                </span>
+                {" "}
+                <span className="text-foreground">Private</span>
+              </span>
+              <span className="block text-foreground mt-2">Marketplace</span>
+            </h1>
+          </motion.div>
 
-          {/* Subheadline */}
+          {/* Subheadline - brighter text */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
+            className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-8"
           >
             Buy and sell vehicles, boats, real estate, and more across the Anchorage Bowl. 
-            No middlemen. No commissions. Just <span className="text-accent font-semibold">$10</span> for 60 days.
+            No middlemen. No commissions. Just <span className="text-accent font-bold">$10</span> for 60 days.
           </motion.p>
 
-          {/* Stats */}
+          {/* Stats - refined cards */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-8 mb-10"
+            className="flex flex-wrap justify-center gap-6 mb-10"
           >
-            <div className="text-center">
-              <div className="font-display text-2xl md:text-3xl font-bold text-foreground">12</div>
-              <div className="text-sm text-muted-foreground">Neighborhoods</div>
-            </div>
-            <div className="text-center">
-              <div className="font-display text-2xl md:text-3xl font-bold text-foreground">8</div>
-              <div className="text-sm text-muted-foreground">Categories</div>
-            </div>
-            <div className="text-center">
-              <div className="font-display text-2xl md:text-3xl font-bold text-accent">60</div>
-              <div className="text-sm text-muted-foreground">Day Listings</div>
-            </div>
+            {[
+              { value: "12", label: "Neighborhoods" },
+              { value: "8", label: "Categories" },
+              { value: "60", label: "Day Listings", highlight: true }
+            ].map((stat, i) => (
+              <motion.div 
+                key={stat.label}
+                className="text-center px-6 py-3 rounded-xl bg-card/50 border border-border/30 backdrop-blur-sm"
+                whileHover={{ scale: 1.05, borderColor: "hsl(var(--primary) / 0.5)" }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className={`font-display text-2xl md:text-3xl font-bold ${stat.highlight ? 'text-accent' : 'text-foreground'}`}>
+                  {stat.value}
+                </div>
+                <div className="text-sm text-foreground/70">{stat.label}</div>
+              </motion.div>
+            ))}
           </motion.div>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons - updated styling */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -103,14 +114,14 @@ const AnchorageHeroSection = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Link to="/anchorage/browse">
-              <Button variant="aurora" size="xl" className="group">
+              <Button size="xl" className="group bg-primary hover:bg-primary/90 text-primary-foreground">
                 <Search className="w-5 h-5 mr-2" />
                 Browse Listings
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link to="/anchorage/post-listing">
-              <Button variant="outline" size="xl" className="group">
+              <Button variant="outline" size="xl" className="group border-border/50 hover:border-primary/50 hover:bg-primary/5">
                 <Sparkles className="w-5 h-5 mr-2" />
                 Post for $10
               </Button>
@@ -125,13 +136,13 @@ const AnchorageHeroSection = () => {
             className="mt-12 flex flex-wrap justify-center gap-3"
           >
             <Link to="/anchorage/regions">
-              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-                <Building2 className="w-4 h-4 mr-2" />
+              <Button variant="ghost" size="sm" className="text-foreground/60 hover:text-foreground hover:bg-card/50">
+                <MapPin className="w-4 h-4 mr-2" />
                 Explore Neighborhoods
               </Button>
             </Link>
             <Link to="/anchorage/categories">
-              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+              <Button variant="ghost" size="sm" className="text-foreground/60 hover:text-foreground hover:bg-card/50">
                 <Grid className="w-4 h-4 mr-2" />
                 Browse Categories
               </Button>

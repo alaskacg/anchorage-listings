@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Building2, Mail, FileText, Shield, Scale, ExternalLink } from "lucide-react";
+import { Mail, FileText, Shield, Scale, ExternalLink } from "lucide-react";
+import AnchorageLogo from "./AnchorageLogo";
 
 const AnchorageFooter = () => {
   return (
@@ -9,9 +10,7 @@ const AnchorageFooter = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/anchorage" className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <Building2 className="w-4 h-4 text-primary-foreground" />
-              </div>
+              <AnchorageLogo />
               <span className="font-display text-base font-bold text-foreground">Anchorage Listings</span>
             </Link>
             <p className="text-muted-foreground text-xs leading-relaxed mb-4">
@@ -71,24 +70,24 @@ const AnchorageFooter = () => {
             <h4 className="font-display text-sm font-semibold text-foreground mb-3">Categories</h4>
             <ul className="space-y-1.5">
               <li>
-                <a href="https://kenaiautosales.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors text-xs">
+                <Link to="/anchorage/browse?category=vehicles" className="text-muted-foreground hover:text-primary transition-colors text-xs">
                   Vehicles
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="https://alaskanboats.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors text-xs">
+                <Link to="/anchorage/browse?category=boats" className="text-muted-foreground hover:text-primary transition-colors text-xs">
                   Boats & Watercraft
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="https://kenaihomesales.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors text-xs">
+                <Link to="/anchorage/browse?category=real-estate" className="text-muted-foreground hover:text-primary transition-colors text-xs">
                   Real Estate
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="https://alaskaminingequipment.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors text-xs">
+                <Link to="/anchorage/browse?category=mining" className="text-muted-foreground hover:text-primary transition-colors text-xs">
                   Mining Equipment
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -125,7 +124,7 @@ const AnchorageFooter = () => {
           </div>
         </div>
 
-        {/* Network Links */}
+        {/* Network Links - Regional sites only */}
         <div className="mt-8 pt-6 border-t border-border/50">
           <p className="text-muted-foreground text-xs text-center mb-3">Alaska Listings Network</p>
           <div className="flex flex-wrap justify-center gap-4 text-xs">
@@ -135,8 +134,10 @@ const AnchorageFooter = () => {
             <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
               Alcan Listings
             </Link>
-            <span className="text-muted-foreground">•</span>
             <span className="text-foreground font-medium">Anchorage Listings</span>
+            <a href="https://kenailistings.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              Kenai Listings
+            </a>
           </div>
         </div>
 
@@ -144,10 +145,10 @@ const AnchorageFooter = () => {
         <div className="mt-6 pt-6 border-t border-border">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3">
             <p className="text-muted-foreground text-xs text-center md:text-left">
-              © {new Date().getFullYear()} Anchorage Listings LLC. All rights reserved.
+              © {new Date().getFullYear()} Alaska Listings LLC. All rights reserved.
             </p>
             <p className="text-muted-foreground text-xs text-center md:text-right max-w-md">
-              Anchorage Listings LLC is a listing service only. We do not participate in, endorse, or guarantee any transactions between users.
+              Alaska Listings LLC is a listing service only. We do not participate in, endorse, or guarantee any transactions between users.
             </p>
           </div>
         </div>

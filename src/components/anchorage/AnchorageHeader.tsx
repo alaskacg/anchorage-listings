@@ -167,7 +167,7 @@ const AnchorageHeader = () => {
                     <Button variant="ghost" size="sm">Sign In</Button>
                   </Link>
                   <Link to="/anchorage/post-listing">
-                    <Button variant="aurora" size="sm">
+                    <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
                       Post a Listing
                     </Button>
                   </Link>
@@ -273,7 +273,7 @@ const AnchorageHeader = () => {
                   </Button>
                 </Link>
                 <Link to="/anchorage/post-listing" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="aurora" size="sm" className="w-full mt-2">
+                  <Button size="sm" className="w-full mt-2 bg-primary hover:bg-primary/90 text-primary-foreground">
                     Post a Listing
                   </Button>
                 </Link>
@@ -296,7 +296,7 @@ const AnchorageHeader = () => {
                   <Button variant="ghost" size="sm" className="w-full">Sign In</Button>
                 </Link>
                 <Link to="/anchorage/post-listing" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="aurora" size="sm" className="w-full">
+                  <Button size="sm" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                     Post a Listing
                   </Button>
                 </Link>
