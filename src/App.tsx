@@ -26,6 +26,10 @@ import NotFound from "./pages/NotFound";
 
 // Anchorage Pages
 import AnchorageIndex from "./pages/anchorage/Index";
+import AnchorageBrowse from "./pages/anchorage/Browse";
+import AnchoragePostListing from "./pages/anchorage/PostListing";
+import AnchorageLogin from "./pages/anchorage/Login";
+import AnchorageRegister from "./pages/anchorage/Register";
 
 const queryClient = new QueryClient();
 
@@ -60,12 +64,12 @@ const App = () => (
               
               {/* Anchorage Listings Routes */}
               <Route path="/anchorage" element={<AnchorageIndex />} />
-              <Route path="/anchorage/browse" element={<Browse />} />
-              <Route path="/anchorage/post-listing" element={<PostListing />} />
+              <Route path="/anchorage/browse" element={<AnchorageBrowse />} />
+              <Route path="/anchorage/post-listing" element={<AnchoragePostListing />} />
               <Route path="/anchorage/listing/:id" element={<ListingDetail />} />
               <Route path="/anchorage/my-listings" element={<MyListings />} />
-              <Route path="/anchorage/login" element={<Login />} />
-              <Route path="/anchorage/register" element={<Register />} />
+              <Route path="/anchorage/login" element={<AnchorageLogin />} />
+              <Route path="/anchorage/register" element={<AnchorageRegister />} />
               <Route path="/anchorage/regions" element={<Regions />} />
               <Route path="/anchorage/categories" element={<Categories />} />
               <Route path="/anchorage/terms" element={<Terms />} />

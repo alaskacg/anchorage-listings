@@ -50,22 +50,9 @@ const AnchorageHeroSection = () => {
             transition={{ duration: 0.7 }}
             className="mb-6"
           >
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-              <span className="text-foreground">Anchorage's</span>
-              <span className="block mt-2">
-                <span className="relative inline-block">
-                  <span className="text-primary">Premier</span>
-                  <motion.span
-                    className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                  />
-                </span>
-                {" "}
-                <span className="text-foreground">Private</span>
-              </span>
-              <span className="block text-foreground mt-2">Marketplace</span>
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground">
+              <span>Anchorage's Premier</span>
+              <span className="block mt-1">Private Marketplace</span>
             </h1>
           </motion.div>
 
