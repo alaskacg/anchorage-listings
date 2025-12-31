@@ -8,6 +8,7 @@ import AnchorageEcosystemSites from "@/components/anchorage/AnchorageEcosystemSi
 import AnchorageCTASection from "@/components/anchorage/AnchorageCTASection";
 import AnchorageRecentListings from "@/components/anchorage/AnchorageRecentListings";
 import AnchorageSEOHead from "@/components/anchorage/AnchorageSEOHead";
+import AnchorageChroniclePromo from "@/components/anchorage/AnchorageChroniclePromo";
 
 const AnchorageIndex = () => {
   useEffect(() => {
@@ -26,6 +27,7 @@ const AnchorageIndex = () => {
         <AnchorageHeroSection />
         <AnchorageTrustIndicators />
         <AnchorageNeighborhoodsSection />
+        <AnchorageChroniclePromo />
         <AnchorageEcosystemSites />
         <AnchorageRecentListings />
         <AnchorageCTASection />
