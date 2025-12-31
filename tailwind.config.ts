@@ -73,6 +73,15 @@ export default {
         charcoal: "hsl(var(--charcoal))",
         "snow-peak": "hsl(var(--snow-peak))",
         forest: "hsl(var(--forest))",
+        // Anchorage-specific colors
+        anc: {
+          navy: "hsl(var(--anc-navy))",
+          forest: "hsl(var(--anc-forest))",
+          gold: "hsl(var(--anc-gold))",
+          charcoal: "hsl(var(--anc-charcoal))",
+          crimson: "hsl(var(--anc-crimson))",
+          offwhite: "hsl(var(--anc-offwhite))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
