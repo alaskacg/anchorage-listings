@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
@@ -42,8 +42,11 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Routes>
+              {/* Default route */}
+              <Route path="/" element={<Navigate to="/anchorage" replace />} />
+
               {/* Alcan Listings Routes */}
-              <Route path="/" element={<Index />} />
+              <Route path="/alcan" element={<Index />} />
               <Route path="/post-listing" element={<PostListing />} />
               <Route path="/browse" element={<Browse />} />
               <Route path="/listing/:id" element={<ListingDetail />} />
