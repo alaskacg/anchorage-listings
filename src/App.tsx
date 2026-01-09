@@ -2,34 +2,29 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AuthProvider } from "@/contexts/AuthContext";
-import Index from "./pages/Index";
-import PostListing from "./pages/PostListing";
-import Browse from "./pages/Browse";
-import ListingDetail from "./pages/ListingDetail";
-import MyListings from "./pages/MyListings";
-import Terms from "./pages/Terms";
-import Privacy from "./pages/Privacy";
-import Disclaimer from "./pages/Disclaimer";
-import Regions from "./pages/Regions";
-import Categories from "./pages/Categories";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Dashboard from "./pages/admin/Dashboard";
-import AdminListings from "./pages/admin/AdminListings";
-import AdminUsers from "./pages/admin/AdminUsers";
-import AdminPayments from "./pages/admin/AdminPayments";
-import AdminSettings from "./pages/admin/AdminSettings";
 import NotFound from "./pages/NotFound";
 
-// Anchorage Pages
+// Anchorage Pages (standalone site)
 import AnchorageIndex from "./pages/anchorage/Index";
 import AnchorageBrowse from "./pages/anchorage/Browse";
 import AnchoragePostListing from "./pages/anchorage/PostListing";
 import AnchorageLogin from "./pages/anchorage/Login";
 import AnchorageRegister from "./pages/anchorage/Register";
+import AnchorageListingDetail from "./pages/anchorage/ListingDetail";
+import AnchorageMyListings from "./pages/anchorage/MyListings";
+import AnchorageTerms from "./pages/anchorage/Terms";
+import AnchoragePrivacy from "./pages/anchorage/Privacy";
+import AnchorageDisclaimer from "./pages/anchorage/Disclaimer";
+import AnchorageRegions from "./pages/anchorage/Regions";
+import AnchorageCategories from "./pages/anchorage/Categories";
+import AnchorageAdminDashboard from "./pages/anchorage/admin/Dashboard";
+import AnchorageAdminListings from "./pages/anchorage/admin/AdminListings";
+import AnchorageAdminUsers from "./pages/anchorage/admin/AdminUsers";
+import AnchorageAdminPayments from "./pages/anchorage/admin/AdminPayments";
+import AnchorageAdminSettings from "./pages/anchorage/admin/AdminSettings";
 
 const queryClient = new QueryClient();
 
@@ -42,43 +37,26 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Routes>
-              {/* Default route */}
-              <Route path="/" element={<Navigate to="/anchorage" replace />} />
-
-              {/* Alcan Listings Routes */}
-              <Route path="/alcan" element={<Index />} />
-              <Route path="/post-listing" element={<PostListing />} />
-              <Route path="/browse" element={<Browse />} />
-              <Route path="/listing/:id" element={<ListingDetail />} />
-              <Route path="/my-listings" element={<MyListings />} />
-              <Route path="/terms" element={<Terms />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/disclaimer" element={<Disclaimer />} />
-              <Route path="/regions" element={<Regions />} />
-              <Route path="/categories" element={<Categories />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              {/* Admin Routes */}
-              <Route path="/admin" element={<Dashboard />} />
-              <Route path="/admin/listings" element={<AdminListings />} />
-              <Route path="/admin/users" element={<AdminUsers />} />
-              <Route path="/admin/payments" element={<AdminPayments />} />
-              <Route path="/admin/settings" element={<AdminSettings />} />
+              {/* Anchorage Listings - anclistings.com */}
+              <Route path="/" element={<AnchorageIndex />} />
+              <Route path="/browse" element={<AnchorageBrowse />} />
+              <Route path="/post-listing" element={<AnchoragePostListing />} />
+              <Route path="/listing/:id" element={<AnchorageListingDetail />} />
+              <Route path="/my-listings" element={<AnchorageMyListings />} />
+              <Route path="/login" element={<AnchorageLogin />} />
+              <Route path="/register" element={<AnchorageRegister />} />
+              <Route path="/regions" element={<AnchorageRegions />} />
+              <Route path="/categories" element={<AnchorageCategories />} />
+              <Route path="/terms" element={<AnchorageTerms />} />
+              <Route path="/privacy" element={<AnchoragePrivacy />} />
+              <Route path="/disclaimer" element={<AnchorageDisclaimer />} />
               
-              {/* Anchorage Listings Routes */}
-              <Route path="/anchorage" element={<AnchorageIndex />} />
-              <Route path="/anchorage/browse" element={<AnchorageBrowse />} />
-              <Route path="/anchorage/post-listing" element={<AnchoragePostListing />} />
-              <Route path="/anchorage/listing/:id" element={<ListingDetail />} />
-              <Route path="/anchorage/my-listings" element={<MyListings />} />
-              <Route path="/anchorage/login" element={<AnchorageLogin />} />
-              <Route path="/anchorage/register" element={<AnchorageRegister />} />
-              <Route path="/anchorage/regions" element={<Regions />} />
-              <Route path="/anchorage/categories" element={<Categories />} />
-              <Route path="/anchorage/terms" element={<Terms />} />
-              <Route path="/anchorage/privacy" element={<Privacy />} />
-              <Route path="/anchorage/disclaimer" element={<Disclaimer />} />
-              <Route path="/anchorage/admin" element={<Dashboard />} />
+              {/* Admin Routes */}
+              <Route path="/admin" element={<AnchorageAdminDashboard />} />
+              <Route path="/admin/listings" element={<AnchorageAdminListings />} />
+              <Route path="/admin/users" element={<AnchorageAdminUsers />} />
+              <Route path="/admin/payments" element={<AnchorageAdminPayments />} />
+              <Route path="/admin/settings" element={<AnchorageAdminSettings />} />
               
               {/* Catch-all */}
               <Route path="*" element={<NotFound />} />
