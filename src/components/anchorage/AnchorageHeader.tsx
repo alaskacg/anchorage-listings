@@ -23,12 +23,12 @@ import {
 } from "@/components/ui/navigation-menu";
 
 const neighborhoods = [
-  { name: "Downtown Anchorage", href: "/anchorage/regions", description: "City center and business district" },
-  { name: "Midtown", href: "/anchorage/regions", description: "Central residential and commercial hub" },
-  { name: "South Anchorage", href: "/anchorage/regions", description: "Hillside and suburban communities" },
-  { name: "Eagle River", href: "/anchorage/regions", description: "Eagle River and Chugiak area" },
-  { name: "Girdwood", href: "/anchorage/regions", description: "Resort community and Alyeska" },
-  { name: "JBER", href: "/anchorage/regions", description: "Joint Base Elmendorf-Richardson" },
+  { name: "Downtown Anchorage", href: "/regions", description: "City center and business district" },
+  { name: "Midtown", href: "/regions", description: "Central residential and commercial hub" },
+  { name: "South Anchorage", href: "/regions", description: "Hillside and suburban communities" },
+  { name: "Eagle River", href: "/regions", description: "Eagle River and Chugiak area" },
+  { name: "Girdwood", href: "/regions", description: "Resort community and Alyeska" },
+  { name: "JBER", href: "/regions", description: "Joint Base Elmendorf-Richardson" },
 ];
 
 const categories = [
@@ -53,7 +53,7 @@ const AnchorageHeader = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-14 md:h-16">
             {/* Logo */}
-            <Link to="/anchorage" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <AnchorageLogo />
               <span className="font-display text-base font-bold text-foreground">Anchorage Listings</span>
             </Link>
@@ -83,7 +83,7 @@ const AnchorageHeader = () => {
                         ))}
                         <li className="col-span-2">
                           <Link
-                            to="/anchorage/regions"
+                            to="/regions"
                             className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground text-center text-sm text-primary"
                           >
                             View All Neighborhoods →
@@ -116,7 +116,7 @@ const AnchorageHeader = () => {
                         ))}
                         <li className="col-span-full">
                           <Link
-                            to="/anchorage/categories"
+                            to="/categories"
                             className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground text-center text-sm text-primary"
                           >
                             View All Categories →
@@ -128,7 +128,7 @@ const AnchorageHeader = () => {
                 </NavigationMenuList>
               </NavigationMenu>
 
-              <Link to="/anchorage/browse" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <Link to="/browse" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 Browse All
               </Link>
               
@@ -143,16 +143,16 @@ const AnchorageHeader = () => {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-48">
                     <DropdownMenuItem asChild>
-                      <Link to="/anchorage/my-listings" className="cursor-pointer text-sm">My Listings</Link>
+                      <Link to="/my-listings" className="cursor-pointer text-sm">My Listings</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link to="/anchorage/post-listing" className="cursor-pointer text-sm">Post a Listing</Link>
+                      <Link to="/post-listing" className="cursor-pointer text-sm">Post a Listing</Link>
                     </DropdownMenuItem>
                     {isAdmin && (
                       <>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild>
-                          <Link to="/anchorage/admin" className="cursor-pointer text-sm">Admin Dashboard</Link>
+                          <Link to="/admin" className="cursor-pointer text-sm">Admin Dashboard</Link>
                         </DropdownMenuItem>
                       </>
                     )}
@@ -165,10 +165,10 @@ const AnchorageHeader = () => {
                 </DropdownMenu>
               ) : (
                 <div className="flex items-center gap-2">
-                  <Link to="/anchorage/login">
+                  <Link to="/login">
                     <Button variant="ghost" size="sm">Sign In</Button>
                   </Link>
-                  <Link to="/anchorage/post-listing">
+                  <Link to="/post-listing">
                     <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
                       Post a Listing
                     </Button>
@@ -213,7 +213,7 @@ const AnchorageHeader = () => {
                   </Link>
                 ))}
                 <Link
-                  to="/anchorage/regions"
+                  to="/regions"
                   className="block text-sm text-primary py-1"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -241,7 +241,7 @@ const AnchorageHeader = () => {
                   </a>
                 ))}
                 <Link
-                  to="/anchorage/categories"
+                  to="/categories"
                   className="block text-sm text-primary py-1"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -251,7 +251,7 @@ const AnchorageHeader = () => {
             </details>
 
             <Link 
-              to="/anchorage/browse" 
+              to="/browse" 
               className="text-sm text-muted-foreground hover:text-foreground py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -262,19 +262,19 @@ const AnchorageHeader = () => {
               <>
                 {isAdmin && (
                   <Link 
-                    to="/anchorage/admin" 
+                    to="/admin" 
                     className="text-sm text-primary hover:text-primary/80 py-2"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Admin Dashboard
                   </Link>
                 )}
-                <Link to="/anchorage/my-listings" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/my-listings" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="ghost" size="sm" className="w-full justify-start">
                     My Listings
                   </Button>
                 </Link>
-                <Link to="/anchorage/post-listing" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/post-listing" onClick={() => setMobileMenuOpen(false)}>
                   <Button size="sm" className="w-full mt-2 bg-primary hover:bg-primary/90 text-primary-foreground">
                     Post a Listing
                   </Button>
@@ -294,10 +294,10 @@ const AnchorageHeader = () => {
               </>
             ) : (
               <>
-                <Link to="/anchorage/login" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="ghost" size="sm" className="w-full">Sign In</Button>
                 </Link>
-                <Link to="/anchorage/post-listing" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/post-listing" onClick={() => setMobileMenuOpen(false)}>
                   <Button size="sm" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                     Post a Listing
                   </Button>

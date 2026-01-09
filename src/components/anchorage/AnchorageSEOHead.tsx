@@ -9,7 +9,7 @@ interface AnchorageSEOHeadProps {
 const AnchorageSEOHead = ({ 
   title = "Anchorage Listings | Greater Anchorage Metro Private Marketplace",
   description = "Buy and sell vehicles, boats, real estate, and more across Greater Anchorage. No commissions, just $10 flat rate for 60 days.",
-  path = "/anchorage"
+  path = "/"
 }: AnchorageSEOHeadProps) => {
   const fullUrl = `https://anclistings.com${path}`;
   
@@ -46,7 +46,7 @@ const AnchorageSEOHead = ({
           "description": "Greater Anchorage Metro's Premier Private Listings Marketplace",
           "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://anclistings.com/anchorage/browse?q={search_term_string}",
+            "target": "https://anclistings.com/browse?q={search_term_string}",
             "query-input": "required name=search_term_string"
           }
         })}

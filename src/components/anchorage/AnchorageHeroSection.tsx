@@ -105,14 +105,14 @@ const AnchorageHeroSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Link to="/anchorage/browse">
+            <Link to="/browse">
               <Button size="xl" className="group bg-primary hover:bg-primary/90 text-primary-foreground">
                 <Search className="w-5 h-5 mr-2" />
                 Browse Listings
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link to="/anchorage/post-listing">
+            <Link to="/post-listing">
               <Button variant="outline" size="xl" className="group border-border/50 hover:border-primary/50 hover:bg-primary/5">
                 <Sparkles className="w-5 h-5 mr-2" />
                 {BETA_MODE ? "Post Free (Beta)" : "Post for $10"}
@@ -127,13 +127,13 @@ const AnchorageHeroSection = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-12 flex flex-wrap justify-center gap-3"
           >
-            <Link to="/anchorage/regions">
+            <Link to="/regions">
               <Button variant="ghost" size="sm" className="text-foreground/60 hover:text-foreground hover:bg-card/50">
                 <MapPin className="w-4 h-4 mr-2" />
                 Explore Neighborhoods
               </Button>
             </Link>
-            <Link to="/anchorage/categories">
+            <Link to="/categories">
               <Button variant="ghost" size="sm" className="text-foreground/60 hover:text-foreground hover:bg-card/50">
                 <Grid className="w-4 h-4 mr-2" />
                 Browse Categories

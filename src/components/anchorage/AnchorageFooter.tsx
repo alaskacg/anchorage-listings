@@ -10,7 +10,7 @@ const AnchorageFooter = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/anchorage" className="flex items-center gap-2 mb-3">
+            <Link to="/" className="flex items-center gap-2 mb-3">
               <AnchorageLogo />
               <span className="font-display text-base font-bold text-foreground">Anchorage Listings</span>
             </Link>
@@ -49,27 +49,27 @@ const AnchorageFooter = () => {
             <h4 className="font-display text-sm font-semibold text-foreground mb-3">Anchorage Neighborhoods</h4>
             <ul className="space-y-1.5">
               <li>
-                <Link to="/anchorage/regions" className="text-muted-foreground hover:text-primary transition-colors text-xs">
+                <Link to="/regions" className="text-muted-foreground hover:text-primary transition-colors text-xs">
                   Downtown Anchorage
                 </Link>
               </li>
               <li>
-                <Link to="/anchorage/regions" className="text-muted-foreground hover:text-primary transition-colors text-xs">
+                <Link to="/regions" className="text-muted-foreground hover:text-primary transition-colors text-xs">
                   Midtown / South Anchorage
                 </Link>
               </li>
               <li>
-                <Link to="/anchorage/regions" className="text-muted-foreground hover:text-primary transition-colors text-xs">
+                <Link to="/regions" className="text-muted-foreground hover:text-primary transition-colors text-xs">
                   Eagle River / Chugiak
                 </Link>
               </li>
               <li>
-                <Link to="/anchorage/regions" className="text-muted-foreground hover:text-primary transition-colors text-xs">
+                <Link to="/regions" className="text-muted-foreground hover:text-primary transition-colors text-xs">
                   Girdwood
                 </Link>
               </li>
               <li>
-                <Link to="/anchorage/regions" className="text-primary hover:text-primary/80 transition-colors text-xs font-medium">
+                <Link to="/regions" className="text-primary hover:text-primary/80 transition-colors text-xs font-medium">
                   View All Neighborhoods →
                 </Link>
               </li>
@@ -81,22 +81,22 @@ const AnchorageFooter = () => {
             <h4 className="font-display text-sm font-semibold text-foreground mb-3">Categories</h4>
             <ul className="space-y-1.5">
               <li>
-                <Link to="/anchorage/browse?category=vehicles" className="text-muted-foreground hover:text-primary transition-colors text-xs">
+                <Link to="/browse?category=vehicles" className="text-muted-foreground hover:text-primary transition-colors text-xs">
                   Vehicles
                 </Link>
               </li>
               <li>
-                <Link to="/anchorage/browse?category=boats" className="text-muted-foreground hover:text-primary transition-colors text-xs">
+                <Link to="/browse?category=boats" className="text-muted-foreground hover:text-primary transition-colors text-xs">
                   Boats & Watercraft
                 </Link>
               </li>
               <li>
-                <Link to="/anchorage/browse?category=real-estate" className="text-muted-foreground hover:text-primary transition-colors text-xs">
+                <Link to="/browse?category=real-estate" className="text-muted-foreground hover:text-primary transition-colors text-xs">
                   Real Estate
                 </Link>
               </li>
               <li>
-                <Link to="/anchorage/browse?category=mining" className="text-muted-foreground hover:text-primary transition-colors text-xs">
+                <Link to="/browse?category=mining" className="text-muted-foreground hover:text-primary transition-colors text-xs">
                   Mining Equipment
                 </Link>
               </li>
@@ -108,19 +108,19 @@ const AnchorageFooter = () => {
             <h4 className="font-display text-sm font-semibold text-foreground mb-3">Legal</h4>
             <ul className="space-y-1.5">
               <li>
-                <Link to="/anchorage/terms" className="text-muted-foreground hover:text-primary transition-colors text-xs flex items-center gap-2">
+                <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors text-xs flex items-center gap-2">
                   <FileText className="w-3 h-3" />
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link to="/anchorage/privacy" className="text-muted-foreground hover:text-primary transition-colors text-xs flex items-center gap-2">
+                <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors text-xs flex items-center gap-2">
                   <Shield className="w-3 h-3" />
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/anchorage/disclaimer" className="text-muted-foreground hover:text-primary transition-colors text-xs flex items-center gap-2">
+                <Link to="/disclaimer" className="text-muted-foreground hover:text-primary transition-colors text-xs flex items-center gap-2">
                   <Scale className="w-3 h-3" />
                   Disclaimer
                 </Link>
