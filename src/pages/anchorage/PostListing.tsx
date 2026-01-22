@@ -210,8 +210,13 @@ const AnchoragePostListing = () => {
         }
       }
 
-      toast({ title: "Listing Created", description: "Your listing has been submitted for review." });
-      navigate('/anchorage/my-listings');
+      toast({ 
+        title: "Listing Created!", 
+        description: BETA_MODE 
+          ? "Your free beta listing is now live!" 
+          : "Your listing has been submitted for review." 
+      });
+      navigate('/my-listings');
     } catch (error) {
       console.error('Error creating listing:', error);
       toast({ title: "Error", description: "Failed to create listing. Please try again.", variant: "destructive" });
