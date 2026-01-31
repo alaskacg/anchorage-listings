@@ -203,11 +203,44 @@ const AnchoragePostListing = () => {
 
       if (listingError) throw listingError;
 
+      let finalListing = listing;
+
       if (images.length > 0 && listing) {
         const imageUrls = await uploadImages(listing.id);
         if (imageUrls.length > 0) {
-          await supabase.from('listings').update({ images: imageUrls }).eq('id', listing.id);
+          const { data: updatedListing } = await supabase
+            .from('listings')
+            .update({ images: imageUrls })
+            .eq('id', listing.id)
+            .select()
+            .single();
+          if (updatedListing) finalListing = updatedListing;
         }
+      }
+
+      // Sync to central hub (non-blocking)
+      if (finalListing && (BETA_MODE || finalListing.status === 'active')) {
+        fetch('https://jneflbektcqalwhgfuyo.supabase.co/functions/v1/ecosystem-listings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: 'sync_listing',
+            source_site: 'anchorage',
+            listing: {
+              id: finalListing.id,
+              title: finalListing.title,
+              description: finalListing.description,
+              price: finalListing.price,
+              category: finalListing.category,
+              region: finalListing.region,
+              images: finalListing.images,
+              contact_name: finalListing.contact_name,
+              contact_email: finalListing.contact_email,
+              contact_phone: finalListing.contact_phone,
+              created_at: finalListing.created_at,
+            }
+          })
+        }).catch(err => console.log('Hub sync error (non-critical):', err));
       }
 
       toast({ 
