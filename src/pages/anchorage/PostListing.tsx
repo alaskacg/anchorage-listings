@@ -194,8 +194,8 @@ const AnchoragePostListing = () => {
           contact_name: contactName.trim(),
           contact_email: contactEmail.trim(),
           contact_phone: contactPhone.trim() || null,
-          status: 'active',
-          payment_status: 'paid',
+          status: 'pending_payment',
+          payment_status: 'pending',
           expires_at: expiresAt.toISOString(),
         })
         .select()
@@ -243,11 +243,21 @@ const AnchoragePostListing = () => {
         }).catch(err => console.log('Hub sync error (non-critical):', err));
       }
 
-      toast({ 
-        title: "Listing Created!", 
-        description: "Your listing is now live!" 
-      });
-      navigate('/my-listings');
+      // Store listing ID for post-payment activation
+      localStorage.setItem('pending_listing_id', listing.id);
+
+      // Redirect to Stripe Checkout
+      const { loadStripe } = await import('@stripe/stripe-js');
+      const stripe = await loadStripe('pk_live_51Sa49S2OuXdsEk61uiFJYFAwecGziydOVZHFAdxQaEtVoUPD17bi9P58E8KD3pU1OHByS2YA4sVCBb5Nu8KFdo9H00YrgzjniG');
+      if (stripe) {
+        await stripe.redirectToCheckout({
+          lineItems: [{ price: 'price_1T2L7K2OuXdsEk61B2khAo0m', quantity: 1 }],
+          mode: 'payment',
+          successUrl: `${window.location.origin}/listing-success?listing_id=${listing.id}`,
+          cancelUrl: `${window.location.origin}/listing-cancel?listing_id=${listing.id}`,
+        });
+      }
+      return;
     } catch (error) {
       console.error('Error creating listing:', error);
       toast({ title: "Error", description: "Failed to create listing. Please try again.", variant: "destructive" });
@@ -496,7 +506,7 @@ const AnchoragePostListing = () => {
                     Creating Listing...
                   </>
                 ) : (
-                  'Submit Listing — $10'
+                  'Pay & Publish — $10'
                 )}
               </Button>
             </motion.div>
