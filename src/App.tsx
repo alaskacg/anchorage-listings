@@ -26,6 +26,7 @@ import AnchorageAdminUsers from "./pages/anchorage/admin/AdminUsers";
 import AnchorageAdminPayments from "./pages/anchorage/admin/AdminPayments";
 import AnchorageAdminSettings from "./pages/anchorage/admin/AdminSettings";
 
+import ListingSuccess from "@/pages/ListingSuccess";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -59,7 +60,8 @@ const App = () => (
               <Route path="/admin/settings" element={<AnchorageAdminSettings />} />
               
               {/* Catch-all */}
-              <Route path="*" element={<NotFound />} />
+              <Route path="/listing-success" element={<ListingSuccess />} />
+          <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
         </TooltipProvider>

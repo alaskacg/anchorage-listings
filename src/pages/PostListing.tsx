@@ -182,7 +182,10 @@ const PostListing = () => {
         description: "Please sign in to post a listing.",
         variant: "destructive",
       });
-      navigate('/login');
+      // Redirect to Stripe for payment
+      const email = encodeURIComponent(contactEmail);
+      window.location.href = `https://buy.stripe.com/5kQcMYbUmdczcai0iK6J200?prefilled_email=${email}`;
+return;
       return;
     }
 
@@ -225,7 +228,7 @@ const PostListing = () => {
           contact_email: contactEmail.trim(),
           contact_phone: contactPhone.trim() || null,
           status: 'pending',
-          payment_status: 'unpaid',
+          payment_status: 'pending',
           expires_at: expiresAt.toISOString(),
         })
         .select()
@@ -249,8 +252,10 @@ const PostListing = () => {
         title: "Listing Created",
         description: "Your listing has been submitted. Payment integration coming soon - your listing will be reviewed by admin.",
       });
-
-      navigate('/my-listings');
+      // Redirect to Stripe for payment
+      const email = encodeURIComponent(contactEmail);
+      window.location.href = `https://buy.stripe.com/5kQcMYbUmdczcai0iK6J200?prefilled_email=${email}`;
+return;
     } catch (error) {
       console.error('Error creating listing:', error);
       toast({
