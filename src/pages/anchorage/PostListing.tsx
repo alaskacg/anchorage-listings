@@ -20,7 +20,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Upload, X, DollarSign, AlertCircle, Loader2 } from "lucide-react";
 import { listingSchema } from "@/lib/validations";
 import { motion } from "framer-motion";
-import { BETA_MODE } from "@/lib/beta";
+
 
 const categories = [
   { value: "vehicles", label: "Vehicles & Autos" },
@@ -194,8 +194,8 @@ const AnchoragePostListing = () => {
           contact_name: contactName.trim(),
           contact_email: contactEmail.trim(),
           contact_phone: contactPhone.trim() || null,
-          status: BETA_MODE ? 'active' : 'pending',
-          payment_status: BETA_MODE ? 'paid' : 'unpaid',
+          status: 'active',
+          payment_status: 'paid',
           expires_at: expiresAt.toISOString(),
         })
         .select()
@@ -219,7 +219,7 @@ const AnchoragePostListing = () => {
       }
 
       // Sync to central hub (non-blocking)
-      if (finalListing && (BETA_MODE || finalListing.status === 'active')) {
+      if (finalListing && finalListing.status === 'active') {
         fetch('https://jneflbektcqalwhgfuyo.supabase.co/functions/v1/ecosystem-listings', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -245,9 +245,7 @@ const AnchoragePostListing = () => {
 
       toast({ 
         title: "Listing Created!", 
-        description: BETA_MODE 
-          ? "Your free beta listing is now live!" 
-          : "Your listing has been submitted for review." 
+        description: "Your listing is now live!" 
       });
       navigate('/my-listings');
     } catch (error) {
@@ -281,7 +279,7 @@ const AnchoragePostListing = () => {
               Post Your Anchorage Listing
             </h1>
             <p className="text-muted-foreground text-sm">
-              {BETA_MODE ? "Beta: listings are free and run the full 60-day period." : "Reach buyers across the Anchorage Bowl. $10 for 60 days."}
+              Reach buyers across the Anchorage Bowl. $10 for 60 days.
             </p>
           </motion.div>
 
@@ -297,12 +295,12 @@ const AnchoragePostListing = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-foreground text-sm">
-                  {BETA_MODE ? "Free during Beta" : "$10 per listing"}
+                  $10 per listing
                 </h3>
                 <p className="text-xs text-muted-foreground">60 days • Up to 5 images</p>
               </div>
             </div>
-            <div className="text-2xl font-display font-bold text-primary">{BETA_MODE ? "$0" : "$10"}</div>
+            <div className="text-2xl font-display font-bold text-primary">$10</div>
           </motion.div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
@@ -498,7 +496,7 @@ const AnchoragePostListing = () => {
                     Creating Listing...
                   </>
                 ) : (
-                  BETA_MODE ? 'Submit Listing — Free (Beta)' : 'Submit Listing — $10'
+                  'Submit Listing — $10'
                 )}
               </Button>
             </motion.div>

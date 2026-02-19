@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/sheet";
 import { supabase } from "@/integrations/supabase/client";
 import { motion } from "framer-motion";
-import { BETA_MODE } from "@/lib/beta";
+
 
 interface Listing {
   id: string;
@@ -93,9 +93,7 @@ const AnchorageBrowse = () => {
         .eq('status', 'active')
         .eq('region', 'anchorage');
 
-      if (!BETA_MODE) {
-        query = query.eq('payment_status', 'paid');
-      }
+      query = query.eq('payment_status', 'paid');
 
       if (category !== 'all') {
         query = query.eq('category', category);

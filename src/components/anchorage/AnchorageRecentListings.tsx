@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { formatDistanceToNow } from "date-fns";
 import SellerTrustBadge from "@/components/SellerTrustBadge";
-import { BETA_MODE } from "@/lib/beta";
+
 
 const ITEMS_PER_PAGE = 50;
 
@@ -32,17 +32,14 @@ const AnchorageRecentListings = () => {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   const { data: listings, isLoading } = useQuery({
-    queryKey: ['anchorage-recent-listings', BETA_MODE],
+    queryKey: ['anchorage-recent-listings'],
     queryFn: async () => {
       let query = supabase
         .from('listings')
         .select('id, title, description, price, category, region, images, created_at, user_id, contact_name')
         .eq('status', 'active');
       
-      // During beta, show all active listings regardless of payment status
-      if (!BETA_MODE) {
-        query = query.eq('payment_status', 'paid');
-      }
+      query = query.eq('payment_status', 'paid');
       
       const { data, error } = await query.order('created_at', { ascending: false });
 

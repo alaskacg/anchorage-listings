@@ -37,7 +37,7 @@ const AnchorageTerms = () => {
             </ul>
             
             <h2 className="text-xl font-semibold text-foreground mt-8">4. Listing Fees</h2>
-            <p>Standard listing fee is $10 for a 60-day listing period. During beta, listings are free. Fees are non-refundable once a listing is published.</p>
+            <p>Standard listing fee is $10 for a 60-day listing period. Fees are non-refundable once a listing is published.</p>
             
             <h2 className="text-xl font-semibold text-foreground mt-8">5. Limitation of Liability</h2>
             <p>Alaska Listings LLC is not responsible for the quality, safety, or legality of items listed, the truth or accuracy of listings, or the ability of sellers to sell items or buyers to pay for them.</p>

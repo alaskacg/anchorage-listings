@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Grid, Search, Sparkles, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
-import { BETA_MODE } from "@/lib/beta";
+
 
 const AnchorageHeroSection = () => {
   return (
@@ -65,11 +65,7 @@ const AnchorageHeroSection = () => {
             className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-8"
           >
             Buy and sell vehicles, boats, real estate, and more across the Anchorage Bowl.
-            {BETA_MODE ? (
-              <> <span className="text-accent font-bold">Free during Beta</span> — listings created now run for the full <span className="font-semibold text-foreground">60 days</span>.</>
-            ) : (
-              <> No middlemen. No commissions. Just <span className="text-accent font-bold">$10</span> for 60 days.</>
-            )}
+            {" "}No middlemen. No commissions. Just <span className="text-accent font-bold">$10</span> for 60 days.
           </motion.p>
 
           {/* Stats - refined cards */}
@@ -115,7 +111,7 @@ const AnchorageHeroSection = () => {
             <Link to="/post-listing">
               <Button variant="outline" size="xl" className="group border-border/50 hover:border-primary/50 hover:bg-primary/5">
                 <Sparkles className="w-5 h-5 mr-2" />
-                {BETA_MODE ? "Post Free (Beta)" : "Post for $10"}
+                Post for $10
               </Button>
             </Link>
           </motion.div>

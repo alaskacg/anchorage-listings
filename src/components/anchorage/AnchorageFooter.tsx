@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, FileText, Shield, Scale, ExternalLink } from "lucide-react";
 import AnchorageLogo from "./AnchorageLogo";
-import { BETA_MODE } from "@/lib/beta";
+
 
 const AnchorageFooter = () => {
   return (
@@ -18,19 +18,9 @@ const AnchorageFooter = () => {
               Greater Anchorage Metro's premier private listings marketplace connecting buyers and sellers across the Anchorage Bowl.
             </p>
             <div className="flex items-center gap-2 mb-4">
-              {BETA_MODE ? (
-                <>
-                  <span className="text-xs text-muted-foreground">Beta:</span>
-                  <span className="text-sm font-semibold text-accent">Free listings</span>
-                  <span className="text-xs text-muted-foreground">(full 60-day run)</span>
-                </>
-              ) : (
-                <>
-                  <span className="text-xs text-muted-foreground">Listings just</span>
-                  <span className="text-sm font-semibold text-accent">$10</span>
-                  <span className="text-xs text-muted-foreground">for 60 days</span>
-                </>
-              )}
+              <span className="text-xs text-muted-foreground">Listings just</span>
+              <span className="text-sm font-semibold text-accent">$10</span>
+              <span className="text-xs text-muted-foreground">for 60 days</span>
             </div>
             {/* Parent Site Link */}
             <a 
